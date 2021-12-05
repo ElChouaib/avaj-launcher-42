@@ -22,6 +22,8 @@ public class Tower {
     }
 
     protected void conditionsChanged() {
+        if(observers.size() != 0)
+            System.out.println("---------- WEATHER IS CHANGING !!! ALERT !!! ALERT -----------");
         for (int i = 0; i < observers.size(); i++) {
             observers.get(i).updateConditions();
         }

@@ -13,7 +13,13 @@ import java.util.HashMap;
  * @Project : Avaj-launcher-42
  */
 public class Helicopter extends Aircraft implements Flyable {
-    private final HashMap<String, String> updateStatus = new HashMap<>() {{
+    private final HashMap<String, String> updateStatus = new HashMap<String, String>() {
+        /**
+        *
+        */
+        private static final long serialVersionUID = 1L;
+
+        {
         put("SUN", "HELI HELI HELI ... TA7ya Lchemch");
         put("RAIN", "HELI HELI HELI ... Lah y3tena 3la 9ed nfa3");
         put("FOG", "MAKIN LA HELI LA WALO ... DBAABAA");
@@ -21,7 +27,12 @@ public class Helicopter extends Aircraft implements Flyable {
         put("GROUNDED", "No Songs !!! There's no landing here but I have to ground now!");
     }};
 
-    private final HashMap<String, int[]> changes = new HashMap<>() {
+    private final HashMap<String, int[]> changes = new HashMap<String, int[]>() {
+        /**
+         *
+         */
+        private static final long serialVersionUID = 1L;
+
         {
             put("SUN", new int[]{10, 0, 2});
             put("RAIN", new int[]{5, 0, 0});

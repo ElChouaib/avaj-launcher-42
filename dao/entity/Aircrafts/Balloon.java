@@ -13,14 +13,25 @@ import java.util.HashMap;
  * @Project : Avaj-launcher-42
  */
 public class Balloon extends Aircraft implements Flyable {
-    private final HashMap<String, String> updateStatus = new HashMap<>() {{
+    private final HashMap<String, String> updateStatus = new HashMap<String, String>() {
+        /**
+        *
+        */
+        private static final long serialVersionUID = 1L;
+
+        {
         put("SUN", "Keep your face to the sun and you will never see the shadows.");
         put("RAIN", "Do not be angry with the rain; it simply does not know how to fall upwards.");
         put("FOG", "Sometimes when you lose your way in the fog, you end up in a beautiful place!");
         put("SNOW", "Let it snow! Let it snow! Let it snow!");
         put("GROUNDED", "No Songs !!! There's no landing here but I have to ground now!");
     }};
-    private final HashMap<String, int[]> changes = new HashMap<>() {
+    private final HashMap<String, int[]> changes = new HashMap<String, int[]>() {
+        /**
+         *
+         */
+        private static final long serialVersionUID = 1L;
+
         {
             put("SUN", new int[]{2, 0, 4});
             put("RAIN", new int[]{0, 0, -5});

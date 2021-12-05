@@ -13,7 +13,13 @@ import java.util.HashMap;
  * @Project : Avaj-launcher-42
  */
 public class Jetplane extends Aircraft implements Flyable {
-    private final HashMap<String, String> updateStatus = new HashMap<>() {{
+    private final HashMap<String, String> updateStatus = new HashMap<String, String>() {
+        /**
+        *
+        */
+        private static final long serialVersionUID = 1L;
+
+        {
         put("SUN", "WAA CHMIIIICHAAA HIA");
         put("RAIN", "ALLAAAH 3LA CHTIWA");
         put("FOG", "WA DBAAABAA MAKNCHUF WALOOOO");
@@ -21,7 +27,12 @@ public class Jetplane extends Aircraft implements Flyable {
         put("GROUNDED", "No Songs !!! There's no landing here but I have to ground now!");
     }};
 
-    private final HashMap<String, int[]> changes = new HashMap<>() {
+    private final HashMap<String, int[]> changes = new HashMap<String, int[]>() {
+        /**
+         *
+         */
+        private static final long serialVersionUID = 11L;
+
         {
             put("SUN", new int[]{0, 10, 2});
             put("RAIN", new int[]{0, 5, 0});
@@ -31,18 +42,19 @@ public class Jetplane extends Aircraft implements Flyable {
     };
     private WeatherTower tower;
 
-    public Jetplane(String name, Coordinates coordinates) {
+    public Jetplane(final String name, final Coordinates coordinates) {
         super(name, coordinates);
     }
 
     // overriding method of interface flyable
 
     /**
-     * This method allows to update conditions based on coordinates of flyable and changes happening for each aircraft
+     * This method allows to update conditions based on coordinates of flyable and
+     * changes happening for each aircraft
      */
     @Override
     public void updateConditions() {
-        String weather = tower.getWeather(this.coordinates);
+        final String weather = tower.getWeather(this.coordinates);
         this.updatePosition(weather, changes);
         System.out.println("-Jetplane: " + this.name + "[" + this.id + "] sings !" + updateStatus.get(weather));
         if (this.coordinates.getHeight() <= 0) {
@@ -52,7 +64,7 @@ public class Jetplane extends Aircraft implements Flyable {
 
     // register the aircraft to the given tower and put a msg abt it
     @Override
-    public void registerTower(WeatherTower weatherTower) {
+    public void registerTower(final WeatherTower weatherTower) {
         this.tower = weatherTower;
         this.tower.register(this);
         System.out.println("UPDATE -> : -Jetplane: " + this.name + "[" + this.id + "]" + " registered to weather tower.");
